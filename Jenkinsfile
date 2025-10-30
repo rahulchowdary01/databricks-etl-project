@@ -4,7 +4,7 @@ pipeline {
     environment {
         // Use the credential IDs you created in Jenkins
         DB_HOST = credentials('DATABRICKS_HOST')
-        DB_TOKEN = credentials('DATABRICKS')
+        DB_TOKEN = credentials('DATABRICKS_TOKEN')
     }
 
     stages {
