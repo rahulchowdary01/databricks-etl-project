@@ -18,12 +18,14 @@ pipeline {
 
         stage('Configure Databricks CLI') {
             steps {
-                // Configure the CLI using the credentials. 
-                // 'set +x' prevents the token from being printed in the logs.
+                // This creates the config file manually for the 'jenkins' user
+                // at its home directory: /var/lib/jenkins/
                 sh """
                 set +x
                 echo "Configuring Databricks CLI..."
-                databricks configure --token $DB_TOKEN --host $DB_HOST
+                echo "[DEFAULT]" > /var/lib/jenkins/.databrickscfg
+                echo "host = $DB_HOST" >> /var/lib/jenkins/.databrickscfg
+                echo "token = $DB_TOKEN" >> /var/lib/jenkins/.databrickscfg
                 set -x
                 echo "Configuration complete."
                 """
