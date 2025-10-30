@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo 'Checking out code from Git...'
                 // --- UPDATE THIS LINE ---
-                git branch: 'main', url: 'https://github.com/rahulchowdary01/databricks-etl-project.git
+                git branch: 'main', url: 'https://github.com/rahulchowdary01/databricks-etl-project.git'
             }
         }
 
